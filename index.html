@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>antonio-baricevic</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+  </head>
+  <body>
+    <header class="glavni">
+        <img id = "logo" src="Stern_Logo.svg.png" alt="Stern Logo" > 
+        <h1 id="h1-naslov">stern</h1>
+        <nav>
+            <h5 class="menu-item">Home</h5>
+            <h5 class="menu-item">Politik</h5>
+            <h5 class="menu-item">Gesundheit</h5>
+            <h5 class="menu-item">Administracija</h5>
+            <h5 class="menu-item"><a href="unos.html">Unos</a></h5>
+        </nav>
+    </header>
+
+    <h2>POLITIK</h2>
+    <section class="tekst">
+        <article>
+            <div>
+                <img src="person1.jpg" width = 100% height="auto">
+            </div>
+            <h6>SUBTOPIC OF SECTION</h6>
+            <h4>Headline 1</h4>
+        </article>
+        <article>
+            <div>
+                <img src="trump.jpg" width = 100% height="auto">
+            </div>
+            <h6>SUBTOPIC OF SECTION</h6>
+            <h4>Headline 2</h4>
+        </article>
+        <article>
+            <div>
+                <img src="trump.jpg" width = 100% height="auto">
+            </div>
+            <h6>SUBTOPIC OF SECTION</h6>
+            <h4>Headline 3</h4>
+        </article>
+    </section>
+    <h2>GESUNDHEIT</h2>
+    <section class="tekst">
+        <article>
+            <div>
+                <img src="food.jpg" width = 100% height="auto">
+            </div>
+            <h6>SUBTOPIC OF SECTION</h6>
+            <h4>Headline 1</h4>
+        </article>
+        <article>
+            <div>
+                <img src="food.jpg" width = 100% height="auto">
+            </div>
+            <h6>SUBTOPIC OF SECTION</h6>
+            <h4>Headline 2</h4>
+        </article>
+        <article>
+            <div>
+                <img src="food.jpg" width = 100% height="auto">
+            </div>
+            <h6>SUBTOPIC OF SECTION</h6>
+            <h4>Headline 3</h4>
+        </article>
+    </section>
+
+    <footer>
+        <h6> Antonio Baričević, abaricevi@tvz.hr, 2023 </h6>
+    </footer>
+  </body>
+</html>
+
+<section class="politika">
+    <?php
+        $query = "SELECT * FROM vijesti WHERE arhiva=0 AND kategorija='crna_kronika' LIMIT 4";
+        $result = mysqli_query($dbc, $query);
+        $i=0;
+        while($row = mysqli_fetch_array($result)) {
+            echo '<article>';
+            echo'<div class="article">';
+            echo '<div class="sport_img">';
+            echo '<img src="' . UPLPATH . $row['slika'] . '"';
+            echo '</div>';
+            echo '<div class="media_body">';
+            echo '<h4 class="title">';
+            echo '<a href="clanak.php?id='.$row['id'].'">';
+            echo $row['naslov'];
+            echo '</a></h4>';
+            echo '</div></div>';
+            echo '</article>';
+        }
+     ?>
+</section>

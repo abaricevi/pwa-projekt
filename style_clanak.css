@@ -1,0 +1,11 @@
+section{
+    padding-left: 2%;
+}
+.slika{
+    display: flex;
+    justify-content: center;
+}
+.sadrzaj{
+    display: flex;
+    justify-content: center;
+}
